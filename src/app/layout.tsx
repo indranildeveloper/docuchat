@@ -1,11 +1,15 @@
-import { FC } from "react";
+import { type FC } from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { type RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";
 
-import "./globals.css";
+import "../styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
 
 export const metadata: Metadata = {
   title: "Quill",
@@ -15,7 +19,11 @@ export const metadata: Metadata = {
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn("grainy min-h-screen antialiased", poppins.className)}
+      >
+        {children}
+      </body>
     </html>
   );
 };
