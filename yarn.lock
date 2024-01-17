@@ -381,6 +381,79 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.17.15":
+  version: 5.17.15
+  resolution: "@tanstack/query-core@npm:5.17.15"
+  checksum: 2967963e94ff78c8bf4941efc09c81e6a6a78400322c26cf5d9528b169c3901a399752d679c3f4ab066c2a6e8df712b5a1b2e033e06fbbaa4b29f5be17032ab4
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.17.15":
+  version: 5.17.15
+  resolution: "@tanstack/react-query@npm:5.17.15"
+  dependencies:
+    "@tanstack/query-core": "npm:5.17.15"
+  peerDependencies:
+    react: ^18.0.0
+  checksum: 99e590cc7feb6355541673f48d8e700ef5f8373ed3d431a31bc8836d867d1ee6b7f9cdce54a4fc0b07686e35fe13631755debe7f2f8d228f1b74f06e0aab16de
+  languageName: node
+  linkType: hard
+
+"@trpc/client@npm:^11.0.0-next-beta.193":
+  version: 11.0.0-next-beta.193
+  resolution: "@trpc/client@npm:11.0.0-next-beta.193"
+  dependencies:
+    "@trpc/core": "npm:11.0.0-next-beta.193+ec8719429"
+  checksum: 62984e15578922228275c14706d3929b61b89722f180ff0ddd1ba2ce83e116538a864300a1c8660c10be3c8a0b139f2e339c728a19f03bfd4d5cac2caff38f8d
+  languageName: node
+  linkType: hard
+
+"@trpc/core@npm:11.0.0-next-beta.193+ec8719429":
+  version: 11.0.0-next-beta.193
+  resolution: "@trpc/core@npm:11.0.0-next-beta.193"
+  checksum: 3e57296c925d7fa04ac77ad33815afc95aeadd96aa92c59501063babbe7632cced377c00cc5d6673a23c2997eaa1518d1c53430cfb22f598643e79c8f6aaf0a9
+  languageName: node
+  linkType: hard
+
+"@trpc/next@npm:^11.0.0-next-beta.193":
+  version: 11.0.0-next-beta.193
+  resolution: "@trpc/next@npm:11.0.0-next-beta.193"
+  dependencies:
+    "@trpc/core": "npm:11.0.0-next-beta.193+ec8719429"
+  peerDependencies:
+    "@tanstack/react-query": ^5.0.0
+    "@trpc/client": 11.0.0-next-beta.193+ec8719429
+    "@trpc/react-query": 11.0.0-next-beta.193+ec8719429
+    next: "*"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: daec150c9ebfd3b9001cdedd75bb666fc24023dfaf672c05c4ebc25d640af828125c5bc2005f34b10f2320cd21561e88fd4b58b05d4cbc3d1751fd6a8d0da272
+  languageName: node
+  linkType: hard
+
+"@trpc/react-query@npm:^11.0.0-next-beta.193":
+  version: 11.0.0-next-beta.193
+  resolution: "@trpc/react-query@npm:11.0.0-next-beta.193"
+  dependencies:
+    "@trpc/core": "npm:11.0.0-next-beta.193+ec8719429"
+  peerDependencies:
+    "@tanstack/react-query": ^5.0.0
+    "@trpc/client": 11.0.0-next-beta.193+ec8719429
+    react: ">=18.2.0"
+    react-dom: ">=18.2.0"
+  checksum: 678119c336bf436c14910d570ee427ab611be70d293b83ba4857a3f9e4837ad52e732104b8eee2ca7828d9842ade2aba9396ccc88f7ecec9e3b95555d958a3b5
+  languageName: node
+  linkType: hard
+
+"@trpc/server@npm:^11.0.0-next-beta.193":
+  version: 11.0.0-next-beta.193
+  resolution: "@trpc/server@npm:11.0.0-next-beta.193"
+  dependencies:
+    "@trpc/core": "npm:11.0.0-next-beta.193+ec8719429"
+  checksum: 9cb38d7bf80d40e696d213b1a72567480dc58c99c2893bc71c22fce3097c1161f6124cefb4350368947e18d9c096039465d8153705ea2c7e17194db23df7a238
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.12":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -3800,6 +3873,11 @@ __metadata:
     "@kinde-oss/kinde-auth-nextjs": "npm:^2.1.3"
     "@radix-ui/react-slot": "npm:^1.0.2"
     "@tailwindcss/typography": "npm:^0.5.10"
+    "@tanstack/react-query": "npm:^5.17.15"
+    "@trpc/client": "npm:^11.0.0-next-beta.193"
+    "@trpc/next": "npm:^11.0.0-next-beta.193"
+    "@trpc/react-query": "npm:^11.0.0-next-beta.193"
+    "@trpc/server": "npm:^11.0.0-next-beta.193"
     "@types/node": "npm:^20.11.0"
     "@types/react": "npm:^18.2.47"
     "@types/react-dom": "npm:^18.2.18"
@@ -3830,6 +3908,7 @@ __metadata:
     tailwindcss-animate: "npm:^1.0.7"
     typescript: "npm:^5.3.3"
     yarn-upgrade-all: "npm:^0.7.2"
+    zod: "npm:^3.22.4"
   languageName: unknown
   linkType: soft
 
@@ -4880,5 +4959,12 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: dceb44c28578b31641e13695d200d34ec4ab3966a5729814d5445b194933c096b7ced71494ce53a0e8820685d1d010df8b2422e5bf2cdea7e469d97ffbea306f
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.22.4":
+  version: 3.22.4
+  resolution: "zod@npm:3.22.4"
+  checksum: 7578ab283dac0eee66a0ad0fc4a7f28c43e6745aadb3a529f59a4b851aa10872b3890398b3160f257f4b6817b4ce643debdda4fb21a2c040adda7862cab0a587
   languageName: node
   linkType: hard
