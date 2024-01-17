@@ -2,6 +2,7 @@ import { type FC } from "react";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/shared/Navbar";
 import { type RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";
 
 import "../styles/globals.css";
@@ -22,6 +23,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body
         className={cn("grainy min-h-screen antialiased", poppins.className)}
       >
+        <Navbar />
         {children}
       </body>
     </html>
