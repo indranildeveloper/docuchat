@@ -6,6 +6,7 @@ import Navbar from "@/components/shared/Navbar";
 import { type RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";
 
 import "../styles/globals.css";
+import Providers from "@/components/providers/Providers";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,12 +21,14 @@ export const metadata: Metadata = {
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body
-        className={cn("grainy min-h-screen antialiased", poppins.className)}
-      >
-        <Navbar />
-        {children}
-      </body>
+      <Providers>
+        <body
+          className={cn("grainy min-h-screen antialiased", poppins.className)}
+        >
+          <Navbar />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 };
