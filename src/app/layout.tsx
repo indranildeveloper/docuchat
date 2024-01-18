@@ -1,12 +1,13 @@
-import { type FC } from "react";
-import type { Metadata } from "next";
+import { FC } from "react";
+import { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/shared/Navbar";
-import { type RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";
-
-import "../styles/globals.css";
 import Providers from "@/components/providers/Providers";
+import { RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";
+
+import "react-loading-skeleton/dist/skeleton.css";
+import "../styles/globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],

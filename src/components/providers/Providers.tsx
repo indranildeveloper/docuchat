@@ -1,10 +1,10 @@
 "use client";
 
-import { type FC, useState } from "react";
+import { FC, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { trpc } from "@/app/_trpc/client";
-import { type ProviderProps } from "@/interfaces/providers/ProviderProps";
+import { ProviderProps } from "@/interfaces/providers/ProviderProps";
 
 const Providers: FC<ProviderProps> = ({ children }) => {
   const [queryClient] = useState(() => new QueryClient());

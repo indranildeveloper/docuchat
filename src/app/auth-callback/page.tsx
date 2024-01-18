@@ -1,6 +1,6 @@
 "use client";
 
-import { type FC } from "react";
+import { FC } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { trpc } from "../_trpc/client";
 import { Loader2 } from "lucide-react";

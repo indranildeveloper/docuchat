@@ -1,5 +1,5 @@
-import { type FC } from "react";
-import { type MaxWidthWrapperProps } from "@/interfaces/components/shared/MaxWidthWrapperProps";
+import { FC } from "react";
+import { MaxWidthWrapperProps } from "@/interfaces/components/shared/MaxWidthWrapperProps";
 import { cn } from "@/lib/utils";
 
 const MaxWidthWrapper: FC<MaxWidthWrapperProps> = ({ className, children }) => {

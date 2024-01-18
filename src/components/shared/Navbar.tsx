@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { FC } from "react";
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "../ui/Button";
