@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/Toaster";
 import { RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";
 
 import "react-loading-skeleton/dist/skeleton.css";
+import "simplebar-react/dist/simplebar.min.css";
 import "../styles/globals.css";
 
 const poppins = Poppins({
