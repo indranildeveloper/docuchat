@@ -17,18 +17,19 @@ import { useResizeDetector } from "react-resize-detector";
 import SimpleBar from "simplebar-react";
 import { PdfRendererProps } from "@/interfaces/components/shared/PdfRendererProps";
 import { useToast } from "@/hooks/useToast";
+import { cn } from "@/lib/utils";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
-
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/DropdownMenu";
+import PdfFullScreen from "./PdfFullScreen";
+
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
@@ -37,6 +38,9 @@ const PdfRenderer: FC<PdfRendererProps> = ({ url }) => {
   const [currPage, setCurrPage] = useState<number>(1);
   const [scale, setScale] = useState<number>(1);
   const [rotation, setRotation] = useState<number>(0);
+  const [renderedScale, setRenderedScale] = useState<number | null>(null);
+
+  const isLoading = renderedScale !== scale;
 
   const { toast } = useToast();
   const { width, ref } = useResizeDetector();
@@ -77,6 +81,7 @@ const PdfRenderer: FC<PdfRendererProps> = ({ url }) => {
             disabled={currPage <= 1}
             onClick={() => {
               setCurrPage((prev) => (prev - 1 > 1 ? prev - 1 : 1));
+              setValue("page", String(currPage - 1));
             }}
           >
             <ChevronDown className="h-4 w-4" />
@@ -110,6 +115,7 @@ const PdfRenderer: FC<PdfRendererProps> = ({ url }) => {
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 prev + 1 > numPages! ? numPages! : prev + 1,
               );
+              setValue("page", String(currPage + 1));
             }}
           >
             <ChevronUp className="h-4 w-4" />
@@ -147,6 +153,8 @@ const PdfRenderer: FC<PdfRendererProps> = ({ url }) => {
           >
             <RotateCw className="h-4 w-4" />
           </Button>
+
+          <PdfFullScreen fileUrl={url} />
         </div>
       </div>
 
@@ -170,11 +178,28 @@ const PdfRenderer: FC<PdfRendererProps> = ({ url }) => {
               file={url}
               className="max-h-full"
             >
+              {isLoading && renderedScale ? (
+                <Page
+                  key={"@" + renderedScale}
+                  pageNumber={currPage}
+                  width={width ?? 1}
+                  scale={scale}
+                  rotate={rotation}
+                />
+              ) : null}
               <Page
+                key={"@" + scale}
+                className={cn(isLoading ? "hidden" : "")}
                 pageNumber={currPage}
                 width={width ?? 1}
                 scale={scale}
                 rotate={rotation}
+                loading={
+                  <div className="flex justify-center">
+                    <Loader2 className="my-24 h-6 w-6 animate-spin" />
+                  </div>
+                }
+                onRenderSuccess={() => setRenderedScale(scale)}
               />
             </Document>
           </div>
