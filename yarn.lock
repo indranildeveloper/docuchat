@@ -542,6 +542,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/hooks@npm:^7.5.0":
+  version: 7.5.0
+  resolution: "@mantine/hooks@npm:7.5.0"
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 4db4193e6e3504b53705f569d022718834a7edcc32c95296cc850a537bdb07f026eecd7bfc67429c0c78777ed704ed3a157fa9048803cb29612dd1a60ba9c43b
+  languageName: node
+  linkType: hard
+
 "@mapbox/node-pre-gyp@npm:^1.0.0":
   version: 1.0.11
   resolution: "@mapbox/node-pre-gyp@npm:1.0.11"
@@ -6554,6 +6563,7 @@ __metadata:
     "@kinde-oss/kinde-auth-nextjs": "npm:^2.1.4"
     "@langchain/openai": "npm:^0.0.12"
     "@langchain/pinecone": "npm:^0.0.1"
+    "@mantine/hooks": "npm:^7.5.0"
     "@pinecone-database/pinecone": "npm:^2.0.1"
     "@prisma/client": "npm:^5.8.1"
     "@radix-ui/react-dialog": "npm:^1.0.5"

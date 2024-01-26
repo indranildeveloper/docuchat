@@ -1,13 +1,17 @@
-import { FC } from "react";
-import { trpc } from "@/app/_trpc/client";
+import { FC, useContext, useEffect, useRef } from "react";
 import Skeleton from "react-loading-skeleton";
+import { useIntersection } from "@mantine/hooks";
+import { trpc } from "@/app/_trpc/client";
 import { MessagesProps } from "@/interfaces/components/chat/MessagesProps";
 import { INFINITE_QUERY_LIMIT } from "@/config/infinite-query";
 import { Loader2, MessagesSquare } from "lucide-react";
 import Message from "./Message";
+import { ChatContext } from "./context/ChatContext";
 
 const Messages: FC<MessagesProps> = ({ fileId }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { isLoading: isAIThinking } = useContext(ChatContext);
+  const lastMessageRef = useRef<HTMLDivElement>(null);
+
   const { data, isLoading, fetchNextPage } =
     trpc.getFileMessages.useInfiniteQuery(
       {
@@ -33,13 +37,23 @@ const Messages: FC<MessagesProps> = ({ fileId }) => {
   };
 
   const combinedMessages = [
-    // eslint-disable-next-line no-constant-condition
-    ...(true ? [loadingMessage] : []),
+    ...(isAIThinking ? [loadingMessage] : []),
     ...(messages ?? []),
   ];
 
+  const { ref, entry } = useIntersection({
+    root: lastMessageRef.current,
+    threshold: 1,
+  });
+
+  useEffect(() => {
+    if (entry?.isIntersecting) {
+      fetchNextPage();
+    }
+  }, [entry, fetchNextPage]);
+
   return (
-    <div className="scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch flex max-h-[calc(100vh-10.5rem)] flex-1 flex-col-reverse gap-4 overflow-y-auto border border-zinc-200 p-3">
+    <div className="scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch flex max-h-[calc(100vh-10.5rem)] flex-1 flex-col-reverse gap-4 overflow-y-auto  border-b-0 border-zinc-200 p-3">
       {combinedMessages && combinedMessages.length > 0 ? (
         combinedMessages.map((message, idx) => {
           const isNextMessageSamePerson =
@@ -50,6 +64,7 @@ const Messages: FC<MessagesProps> = ({ fileId }) => {
             return (
               <Message
                 key={message.id}
+                ref={ref}
                 message={message}
                 isNextMessageSamePerson={isNextMessageSamePerson}
               />
