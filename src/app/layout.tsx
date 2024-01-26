@@ -23,7 +23,8 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang="en">
+    // TODO: suppressHydrationWarning remove -> Caused by Textarea component
+    <html lang="en" suppressHydrationWarning>
       <Providers>
         <body
           className={cn("grainy min-h-screen antialiased", poppins.className)}
