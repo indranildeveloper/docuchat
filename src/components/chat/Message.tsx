@@ -5,7 +5,6 @@ import { MessageProps } from "@/interfaces/components/chat/MessageProps";
 import { Icons } from "../shared/Icons";
 import { format } from "date-fns";
 
-// eslint-disable-next-line react/display-name
 const Message = forwardRef<HTMLDivElement, MessageProps>(
   ({ message, isNextMessageSamePerson }, ref) => {
     return (
@@ -75,5 +74,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
     );
   },
 );
+
+Message.displayName = "Message";
 
 export default Message;
