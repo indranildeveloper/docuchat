@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/server";
 import MaxWidthWrapper from "@/components/shared/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/Button";
 import Image from "next/image";
@@ -23,16 +24,14 @@ const HomePage: FC = () => {
           Simply upload your files and start asking questions right away.
         </p>
 
-        <Link
-          href="/dashboard"
-          target="_blank"
+        <LoginLink
           className={buttonVariants({
             size: "lg",
             className: "mt-5",
           })}
         >
           Get Started <ArrowRight className="ml-2 h-5 w-5" />
-        </Link>
+        </LoginLink>
       </MaxWidthWrapper>
       {/* Value proposition section */}
       <div>
