@@ -15,11 +15,17 @@ const UploadDropzone: FC<UploadDropzoneProps> = ({ isSubscribed }) => {
 
   const { toast } = useToast();
 
-  const { startUpload } = useUploadThing(
+  console.log("is subscribed", isSubscribed);
+
+  const { startUpload, permittedFileInfo } = useUploadThing(
     isSubscribed ? "proPlanUploader" : "freePlanUploader",
   );
 
-  const { mutate: strartPolling } = trpc.getFile.useMutation({
+  const permittedFileSize = Number(
+    permittedFileInfo?.config.pdf?.maxFileSize.replace("MB", ""),
+  );
+
+  const { mutate: startPolling } = trpc.getFile.useMutation({
     onSuccess: (file) => {
       router.push(`/dashboard/${file.id}`);
     },
@@ -51,33 +57,43 @@ const UploadDropzone: FC<UploadDropzoneProps> = ({ isSubscribed }) => {
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onDrop={async (acceptedFiles) => {
         setIsUploading(true);
+        console.log(acceptedFiles[0].size / 1000000);
         const progressInterval = startSimulatedProgress();
 
-        // handle the file uploading
-        const res = await startUpload(acceptedFiles);
-
-        if (!res) {
+        if (acceptedFiles[0].size / 1000000 > permittedFileSize) {
+          setIsUploading(false);
           return toast({
-            title: "Something went wrong!",
-            description: "Please try again later.",
+            title: "File too big!",
+            description: "Please try with a smaller file or upgrade plan.",
             variant: "destructive",
           });
+        } else {
+          // handle the file uploading
+          const res = await startUpload(acceptedFiles);
+
+          if (!res) {
+            return toast({
+              title: "Something went wrong!",
+              description: "Please try again later.",
+              variant: "destructive",
+            });
+          }
+
+          const [fileResponse] = res;
+          const key = fileResponse?.key;
+
+          if (!key) {
+            return toast({
+              title: "Something went wrong!",
+              description: "Please try again later.",
+              variant: "destructive",
+            });
+          }
+
+          clearInterval(progressInterval);
+          setUploadProgress(100);
+          startPolling({ key });
         }
-
-        const [fileResponse] = res;
-        const key = fileResponse?.key;
-
-        if (!key) {
-          return toast({
-            title: "Something went wrong!",
-            description: "Please try again later.",
-            variant: "destructive",
-          });
-        }
-
-        clearInterval(progressInterval);
-        setUploadProgress(100);
-        strartPolling({ key });
       }}
     >
       {({ getRootProps, getInputProps, acceptedFiles }) => (

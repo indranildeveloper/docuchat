@@ -83,28 +83,28 @@ const onUploadComplete = async ({
           id: createdFile.id,
         },
       });
+    } else {
+      // Vectorize and index the document
+      const pineconeIndex = pinecone.Index("quill");
+
+      const embeddings = new OpenAIEmbeddings({
+        openAIApiKey: process.env.OPENAI_API_KEY,
+      });
+
+      await PineconeStore.fromDocuments(pageLevelDocs, embeddings, {
+        pineconeIndex,
+        namespace: createdFile.id,
+      });
+
+      await db.file.update({
+        data: {
+          uploadStatus: "SUCCESS",
+        },
+        where: {
+          id: createdFile.id,
+        },
+      });
     }
-
-    // Vectorize and index the document
-    const pineconeIndex = pinecone.Index("quill");
-
-    const embeddings = new OpenAIEmbeddings({
-      openAIApiKey: process.env.OPENAI_API_KEY,
-    });
-
-    await PineconeStore.fromDocuments(pageLevelDocs, embeddings, {
-      pineconeIndex,
-      namespace: createdFile.id,
-    });
-
-    await db.file.update({
-      data: {
-        uploadStatus: "SUCCESS",
-      },
-      where: {
-        id: createdFile.id,
-      },
-    });
   } catch (error) {
     console.log(error);
     await db.file.update({
@@ -120,11 +120,9 @@ const onUploadComplete = async ({
 
 export const ourFileRouter = {
   freePlanUploader: f({ pdf: { maxFileSize: "4MB" } })
-    // Set permissions and file types for this FileRoute
     .middleware(middleware)
     .onUploadComplete(onUploadComplete),
   proPlanUploader: f({ pdf: { maxFileSize: "16MB" } })
-    // Set permissions and file types for this FileRoute
     .middleware(middleware)
     .onUploadComplete(onUploadComplete),
 } satisfies FileRouter;
