@@ -15,8 +15,6 @@ const UploadDropzone: FC<UploadDropzoneProps> = ({ isSubscribed }) => {
 
   const { toast } = useToast();
 
-  console.log("is subscribed", isSubscribed);
-
   const { startUpload, permittedFileInfo } = useUploadThing(
     isSubscribed ? "proPlanUploader" : "freePlanUploader",
   );
