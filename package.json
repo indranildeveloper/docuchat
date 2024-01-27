@@ -13,7 +13,8 @@
     "format:check": "npm run prettier -- --check",
     "format:fix": "npm run prettier -- --write",
     "types:check": "tsc --noEmit --pretty",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
