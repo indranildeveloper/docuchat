@@ -86,3 +86,4 @@ Upcoming.
 ## License
 
 This project is licensed under the MIT License.
+The license can be found under the License tab.
