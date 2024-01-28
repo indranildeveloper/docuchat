@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Quill AI
+
+This project allows users to upload a PDF and chat with the contents of the PDF using OpenAI. The uploaded PDF is stored in a vector database, and users can ask questions about the contents of the PDF with the help of LangChain and OpenAI.
+
+## Features
+
+- Upload PDFs and chat with the contents of the PDF using OpenAI.
+- Store uploaded PDFs in a vector database.
+- Ask questions about the contents of the PDF with the help of LangChain and OpenAI.
+
+## Plans
+
+- **Free Plan**: Users can upload a PDF under 4MB and less than 5 pages.
+- **Pro Plan**: Users can upload a PDF under 16MB and under 25 pages.
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone this repository.
+
+```
+gh repo clone indranildeveloper/quill
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the required dependencies with yarn.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Add the environment variables.
 
-## Learn More
+```
+KINDE_CLIENT_ID=<KINDE_CLIENT_ID>
+KINDE_CLIENT_SECRET=<KINDE_CLIENT_SECRET>
+KINDE_ISSUER_URL=<KINDE_ISSUER_URL>
+KINDE_SITE_URL=<KINDE_SITE_URL>
+KINDE_POST_LOGOUT_REDIRECT_URL=<KINDE_POST_LOGOUT_REDIRECT_URL>
+KINDE_POST_LOGIN_REDIRECT_URL=<KINDE_POST_LOGIN_REDIRECT_URL>
+DATABASE_URL=<DATABASE_URL>
+UPLOADTHING_SECRET=<UPLOADTHING_SECRET>
+UPLOADTHING_APP_ID=<UPLOADTHING_APP_ID>
+PINECONE_API_KEY=<PINECONE_API_KEY>
+OPENAI_API_KEY=<OPENAI_API_KEY>
+STRIPE_SECRET_KEY=<STRIPE_SECRET_KEY>
+STRIPE_WEBHOOK_SECRET=<STRIPE_WEBHOOK_SECRET>
+DEPLOYMENT_URL=<DEPLOYMENT_URL>
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Dependencies
 
-## Deploy on Vercel
+- NextJS 14
+- Tailwind CSS
+- Shadcn UI
+- Kinde Auth
+- TypeScript
+- trpc
+- React Query
+- Langchain
+- Pinecone
+- OpenAI
+- Prisma
+- PostgreSQL
+- Stripe Payment Gateway
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To use this project, follow these steps:
+
+1. Sign up for an account.
+2. Choose a plan.
+3. Upload a PDF.
+4. Chat with the contents of the PDF using OpenAI.
+
+## Contributing
+
+Upcoming.
+
+## License
+
+This project is licensed under the MIT License.
