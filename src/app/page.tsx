@@ -90,7 +90,7 @@ const HomePage: FC = () => {
             </h2>
             <p className="mt-4 text-lg text-gray-600">
               Chatting with your PDF files has never been easier than with
-              Quill.
+              DocuChat.
             </p>
           </div>
         </div>
@@ -134,8 +134,8 @@ const HomePage: FC = () => {
                 Start asking your questions
               </span>
               <span className="mt-2 text-zinc-700">
-                It&apos; that simple. Try our Quill today - it really takes less
-                than a minute.
+                It&apos; that simple. Try our DocuChat today - it really takes
+                less than a minute.
               </span>
             </div>
           </li>
