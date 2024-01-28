@@ -1,4 +1,4 @@
-# Quill AI
+# DocuChat AI
 
 This project allows users to upload a PDF and chat with the contents of the PDF using OpenAI. The uploaded PDF is stored in a vector database, and users can ask questions about the contents of the PDF with the help of LangChain and OpenAI.
 
@@ -20,7 +20,7 @@ To get started with this project, follow these steps:
 1. Clone this repository.
 
 ```
-gh repo clone indranildeveloper/quill
+gh repo clone indranildeveloper/docuchat
 ```
 
 2. Install the required dependencies with yarn.

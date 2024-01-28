@@ -15,7 +15,7 @@ export function absoluteUrl(path: string): string {
 }
 
 export function constructMetaData({
-  title = "Quill - Chat with PDF",
+  title = "DocuChat - Chat with PDF",
   description = "An open source software",
   image = "/thumbnail.png",
   icons = "/favicon.ico",
@@ -47,7 +47,7 @@ export function constructMetaData({
       creator: "@indranilcoder",
     },
     icons,
-    metadataBase: new URL("https://quill-orpin.vercel.app"),
+    metadataBase: new URL("https://quill-indra.vercel.app"),
     ...(noIndex && {
       robots: {
         index: false,
