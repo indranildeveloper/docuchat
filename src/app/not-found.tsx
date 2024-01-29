@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/Button";
 import { ArrowLeft } from "lucide-react";
+import { buttonVariants } from "@/components/ui/Button";
 
 const NotFoundPage: FC = () => {
   return (
