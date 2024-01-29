@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { trpc } from "../_trpc/client";
@@ -10,13 +10,15 @@ const AuthCallBackPage: FC = () => {
 
   const { data, error } = trpc.authCallback.useQuery();
 
-  if (data?.success) {
-    router.push("/dashboard");
-  }
+  useEffect(() => {
+    if (data?.success) {
+      router.push("/dashboard");
+    }
 
-  if (error?.data?.code === "UNAUTHORIZED") {
-    router.push("/api/auth/login");
-  }
+    if (error?.data?.code === "UNAUTHORIZED") {
+      router.push("/api/auth/login");
+    }
+  }, [data?.success, error?.data?.code, router]);
 
   return (
     <div className="mt-24 flex w-full justify-center">
