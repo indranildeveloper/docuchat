@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/Dialog";
 import { Button } from "../ui/Button";
 import UploadDropzone from "./UploadDropzone";
-import { UploadButtonProps } from "@/interfaces/components/shared/UploadButtonProps";
+import { UploadButtonProps } from "@/interfaces/components/file-upload/UploadButtonProps";
 
 const UploadButton: FC<UploadButtonProps> = ({ isSubscribed }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

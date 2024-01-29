@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Poppins } from "next/font/google";
 import { cn, constructMetaData } from "@/lib/utils";
-import Navbar from "@/components/shared/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import Providers from "@/components/providers/Providers";
 import { Toaster } from "@/components/ui/Toaster";
 import { RootLayoutProps } from "@/interfaces/layouts/RootLayoutProps";

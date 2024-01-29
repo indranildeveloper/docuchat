@@ -2,7 +2,7 @@ import { FC } from "react";
 import { redirect } from "next/navigation";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { db } from "@/db";
-import Dashboard from "@/components/shared/Dashboard";
+import Dashboard from "@/components/dashboard/Dashboard";
 import { getUserSubscriptionPlan } from "@/lib/stripe";
 
 const DashboardPage: FC = async () => {

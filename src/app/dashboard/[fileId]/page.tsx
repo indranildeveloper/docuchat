@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { FileIdPageProps } from "@/interfaces/components/pages/FileIdPageProps";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { db } from "@/db";
-import PdfRenderer from "@/components/shared/PdfRenderer";
+import PdfRenderer from "@/components/pdf-render/PdfRenderer";
 import ChatWrapper from "@/components/chat/ChatWrapper";
 
 const FileIdPage: FC<FileIdPageProps> = async ({ params }) => {

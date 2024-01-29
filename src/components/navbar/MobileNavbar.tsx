@@ -3,7 +3,7 @@
 import { FC, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Menu } from "lucide-react";
-import { MobileNavbarProps } from "@/interfaces/components/shared/MobileNavbarProps";
+import { MobileNavbarProps } from "@/interfaces/components/navbar/MobileNavbarProps";
 
 const MobileNavbar: FC<MobileNavbarProps> = ({ isAuth }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

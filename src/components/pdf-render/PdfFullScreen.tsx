@@ -8,7 +8,7 @@ import { Expand, Loader2 } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/Dialog";
 import { Button } from "../ui/Button";
 import { useToast } from "@/hooks/useToast";
-import { PdfFullScreenProps } from "@/interfaces/components/shared/PdfFullScreenProps";
+import { PdfFullScreenProps } from "@/interfaces/components/pdf-render/PdfFullScreenProps";
 
 const PdfFullScreen: FC<PdfFullScreenProps> = ({ fileUrl }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

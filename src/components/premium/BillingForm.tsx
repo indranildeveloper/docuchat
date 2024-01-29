@@ -1,10 +1,9 @@
 "use client";
 
 import { FC } from "react";
-import { BillingFormProps } from "@/interfaces/components/shared/BillingFormProps";
 import { useToast } from "@/hooks/useToast";
 import { trpc } from "@/app/_trpc/client";
-import MaxWidthWrapper from "./MaxWidthWrapper";
+import MaxWidthWrapper from "../shared/MaxWidthWrapper";
 import {
   Card,
   CardDescription,
@@ -15,6 +14,7 @@ import {
 import { Button } from "../ui/Button";
 import { Loader2 } from "lucide-react";
 import { format } from "date-fns";
+import { BillingFormProps } from "@/interfaces/components/premium/BillingFormProps";
 
 const BillingForm: FC<BillingFormProps> = ({ subscriptionPlan }) => {
   const { toast } = useToast();

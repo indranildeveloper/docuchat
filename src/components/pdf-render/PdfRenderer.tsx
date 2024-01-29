@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { useResizeDetector } from "react-resize-detector";
 import SimpleBar from "simplebar-react";
-import { PdfRendererProps } from "@/interfaces/components/shared/PdfRendererProps";
 import { useToast } from "@/hooks/useToast";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/Button";
@@ -30,6 +29,7 @@ import PdfFullScreen from "./PdfFullScreen";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+import { PdfRendererProps } from "@/interfaces/components/pdf-render/PdfRendererProps";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 

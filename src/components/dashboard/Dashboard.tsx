@@ -5,10 +5,10 @@ import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import { format } from "date-fns";
 import { Ghost, Loader2, MessageSquare, Plus, Trash } from "lucide-react";
-import UploadButton from "./UploadButton";
+import UploadButton from "../file-upload/UploadButton";
 import { trpc } from "@/app/_trpc/client";
 import { Button } from "../ui/Button";
-import { DashboardProps } from "@/interfaces/components/shared/DashboardProps";
+import { DashboardProps } from "@/interfaces/components/dashboard/DashboardProps";
 
 const Dashboard: FC<DashboardProps> = ({ subscriptionPlan }) => {
   const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<

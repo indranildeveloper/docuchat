@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, Check, HelpCircle, Minus } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/Button";
-import UpgradeButton from "@/components/shared/UpgradeButton";
+import UpgradeButton from "@/components/premium/UpgradeButton";
 
 const PricingPage: FC = async () => {
   const { getUser } = getKindeServerSession();

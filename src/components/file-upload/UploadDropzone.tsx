@@ -6,7 +6,7 @@ import { FC, useState } from "react";
 import { useToast } from "@/hooks/useToast";
 import { trpc } from "@/app/_trpc/client";
 import { useUploadThing } from "@/lib/uploadthing";
-import { UploadDropzoneProps } from "@/interfaces/components/shared/UploadDropzoneProps";
+import { UploadDropzoneProps } from "@/interfaces/components/file-upload/UploadDropzoneProps";
 
 const UploadDropzone: FC<UploadDropzoneProps> = ({ isSubscribed }) => {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import MaxWidthWrapper from "./MaxWidthWrapper";
+import MaxWidthWrapper from "../shared/MaxWidthWrapper";
 import { buttonVariants } from "../ui/Button";
 import {
   LoginLink,

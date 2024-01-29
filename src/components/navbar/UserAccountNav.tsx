@@ -13,8 +13,8 @@ import {
 } from "../ui/DropdownMenu";
 import { Button } from "../ui/Button";
 import { Avatar, AvatarFallback } from "../ui/Avatar";
-import { Icons } from "./Icons";
-import { UserAccountNavProps } from "@/interfaces/components/shared/UserAccountNavProps";
+import { Icons } from "../shared/Icons";
+import { UserAccountNavProps } from "@/interfaces/components/navbar/UserAccountNavProps";
 
 const UserAccountNav: FC<UserAccountNavProps> = async ({
   email,
