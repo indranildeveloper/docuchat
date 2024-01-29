@@ -2,6 +2,11 @@
 
 import { FC, useState } from "react";
 import Link from "next/link";
+import {
+  RegisterLink,
+  LoginLink,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 import { ArrowRight, Menu } from "lucide-react";
 import { MobileNavbarProps } from "@/interfaces/components/navbar/MobileNavbarProps";
 
@@ -39,22 +44,16 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isAuth }) => {
             {!isAuth ? (
               <>
                 <li>
-                  <Link
-                    href="/api/auth/login"
-                    className="flex w-full items-center font-semibold text-primary"
-                  >
+                  <RegisterLink className="flex w-full items-center font-semibold text-primary">
                     Get Started{" "}
                     <ArrowRight className="ml-2 h-5 w-5 text-primary" />
-                  </Link>
+                  </RegisterLink>
                 </li>
                 <li className="my-3 h-px w-full bg-gray-300" />
                 <li>
-                  <Link
-                    href="/api/auth/login"
-                    className="flex w-full items-center font-semibold text-primary"
-                  >
+                  <LoginLink className="flex w-full items-center font-semibold text-primary">
                     Sign In <ArrowRight className="ml-2 h-5 w-5 text-primary" />
-                  </Link>
+                  </LoginLink>
                 </li>
                 <li className="my-3 h-px w-full bg-gray-300" />
                 <li>
@@ -79,13 +78,10 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isAuth }) => {
                 </li>
                 <li className="my-3 h-px w-full bg-gray-300" />
                 <li>
-                  <Link
-                    href="/sign-out"
-                    className="flex w-full items-center font-semibold text-primary"
-                  >
+                  <LogoutLink className="flex w-full items-center font-semibold text-primary">
                     Sign Out{" "}
                     <ArrowRight className="ml-2 h-5 w-5 text-primary" />
-                  </Link>
+                  </LogoutLink>
                 </li>
               </>
             )}
