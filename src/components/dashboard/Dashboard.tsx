@@ -4,7 +4,14 @@ import { FC, useState } from "react";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import { format } from "date-fns";
-import { Ghost, Loader2, MessageSquare, Plus, Trash } from "lucide-react";
+import {
+  FileText,
+  Ghost,
+  Loader2,
+  MessageSquare,
+  Plus,
+  Trash,
+} from "lucide-react";
 import UploadButton from "../file-upload/UploadButton";
 import { trpc } from "@/app/_trpc/client";
 import { Button } from "../ui/Button";
@@ -57,8 +64,8 @@ const Dashboard: FC<DashboardProps> = ({ subscriptionPlan }) => {
                   className="flex flex-col gap-2"
                 >
                   <div className="mt-6 flex w-full items-center justify-between space-x-6 px-6">
-                    <div className="h-10 w-10 flex-shrink-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500" />
-
+                    {/* <div className="h-10 w-10 flex-shrink-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500" /> */}
+                    <FileText className="h-10 w-10 text-primary" />
                     <div className="flex-1 truncate">
                       <div className="flex items-center space-x-3">
                         <h3 className="truncate text-lg font-medium text-zinc-900">
@@ -75,7 +82,7 @@ const Dashboard: FC<DashboardProps> = ({ subscriptionPlan }) => {
                   </div>
                   <div className="flex items-center gap-2">
                     <MessageSquare className="h-4 w-4" />
-                    mocked
+                    file
                   </div>
 
                   <Button
